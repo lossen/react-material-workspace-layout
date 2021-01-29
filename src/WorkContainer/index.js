@@ -2,14 +2,6 @@ import React from "react"
 import { styled } from "@material-ui/core/styles"
 import { grey } from "@material-ui/core/colors"
 
-const Container = styled("div")({
-  position: "relative",
-  flexGrow: 1,
-  flexShrink: 1,
-  height: "100%",
-  backgroundColor: grey[50],
-  overflowY: "auto",
-})
 const ShadowOverlay = styled("div")({
   content: "' '",
   position: "absolute",
@@ -24,10 +16,19 @@ const ShadowOverlay = styled("div")({
 
 export const WorkContainer = React.forwardRef(({ children }, ref) => {
   return (
-    <Container ref={ref}>
-      {children}
-      <ShadowOverlay />
-    </Container>
+      <div className="work-container"
+           style={{
+             position: "relative",
+             flexGrow: 1,
+             flexShrink: 1,
+             height: "100%",
+             backgroundColor: grey[50],
+             overflowY: "auto",
+           }}
+           ref={ref}>
+        {children}
+        <ShadowOverlay/>
+      </div>
   )
 })
 

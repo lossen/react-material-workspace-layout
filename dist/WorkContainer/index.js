@@ -1,14 +1,6 @@
 import React from "react";
 import { styled } from "@material-ui/core/styles";
 import { grey } from "@material-ui/core/colors";
-var Container = styled("div")({
-  position: "relative",
-  flexGrow: 1,
-  flexShrink: 1,
-  height: "100%",
-  backgroundColor: grey[50],
-  overflowY: "auto"
-});
 var ShadowOverlay = styled("div")({
   content: "' '",
   position: "absolute",
@@ -21,7 +13,16 @@ var ShadowOverlay = styled("div")({
 });
 export var WorkContainer = React.forwardRef(function (_ref, ref) {
   var children = _ref.children;
-  return /*#__PURE__*/React.createElement(Container, {
+  return /*#__PURE__*/React.createElement("div", {
+    className: "work-container",
+    style: {
+      position: "relative",
+      flexGrow: 1,
+      flexShrink: 1,
+      height: "100%",
+      backgroundColor: grey[50],
+      overflowY: "auto"
+    },
     ref: ref
   }, children, /*#__PURE__*/React.createElement(ShadowOverlay, null));
 });
