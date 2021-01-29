@@ -13,15 +13,17 @@ export var IconSidebar = function IconSidebar(_ref) {
       selectedTools = _ref$selectedTools === void 0 ? emptyAr : _ref$selectedTools,
       bgColor = _ref.bgColor;
   var customIconMapping = useIconDictionary();
-  var Container = styled("div")({
-    width: 50,
-    height: "auto",
-    display: "flex",
-    flexDirection: "column",
-    backgroundColor: bgColor ? bgColor : "#fff",
-    flexShrink: 0
-  });
-  return /*#__PURE__*/React.createElement(Container, null, items.map(function (item) {
+  return /*#__PURE__*/React.createElement("div", {
+    className: "icon-sidebar-wrapper",
+    style: {
+      width: 50,
+      height: "auto",
+      display: "flex",
+      flexDirection: "column",
+      backgroundColor: bgColor ? bgColor : "#fff",
+      flexShrink: 0
+    }
+  }, items.map(function (item) {
     var NameIcon = customIconMapping[item.name.toLowerCase()] || iconMapping[item.name.toLowerCase()] || iconMapping["help"];
     var buttonPart = /*#__PURE__*/React.createElement(IconButton, {
       key: item.name,

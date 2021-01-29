@@ -25,16 +25,15 @@ export const IconSidebar = ({
   bgColor
 }: Props) => {
   const customIconMapping = useIconDictionary()
-  const Container = styled("div")({
-    width: 50,
-    height: "auto",
-    display: "flex",
-    flexDirection: "column",
-    backgroundColor: bgColor ? bgColor : "#fff",
-    flexShrink: 0,
-  })
   return (
-    <Container>
+    <div className="icon-sidebar-wrapper"
+        style={{width: 50,
+      height: "auto",
+      display: "flex",
+      flexDirection: "column",
+      backgroundColor: bgColor ? bgColor : "#fff",
+      flexShrink: 0,}}
+    >
       {items.map((item) => {
         let NameIcon =
           customIconMapping[item.name.toLowerCase()] ||
@@ -64,7 +63,7 @@ export const IconSidebar = ({
           </Tooltip>
         )
       })}
-    </Container>
+    </div>
   )
 }
 
