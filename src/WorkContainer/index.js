@@ -22,7 +22,6 @@ export const WorkContainer = React.forwardRef(({ children }, ref) => {
              flexGrow: 1,
              flexShrink: 1,
              height: "100%",
-             backgroundColor: grey[50],
              overflowY: "auto",
            }}
            ref={ref}>
