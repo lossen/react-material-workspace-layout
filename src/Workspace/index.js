@@ -38,6 +38,7 @@ export default ({
   headerLeftSide = null,
   iconDictionary = emptyObj,
   children,
+  IconSidebarBgColor
 }) => {
   const [workContainerRef, workContainerSize] = useDimensions()
   return (
@@ -54,6 +55,7 @@ export default ({
               onClickItem={onClickIconSidebarItem}
               selectedTools={selectedTools}
               items={iconSidebarItems}
+              bgColor={IconSidebarBgColor}
             />
           )}
           <WorkContainer ref={workContainerRef}>{children}</WorkContainer>
