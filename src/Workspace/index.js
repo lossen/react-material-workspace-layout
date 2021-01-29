@@ -41,6 +41,7 @@ export default ({
   hideHeader = false,
   hideHeaderText = false,
   children,
+  IconSidebarBgColor
 }) => {
   const [sidebarAndContentRef, sidebarAndContent] = useDimensions()
   return (
@@ -60,6 +61,7 @@ export default ({
               onClickItem={onClickIconSidebarItem}
               selectedTools={selectedTools}
               items={iconSidebarItems}
+              bgColor={IconSidebarBgColor}
             />
           )}
           <WorkContainer>{children}</WorkContainer>

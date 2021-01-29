@@ -5,14 +5,7 @@ import { iconMapping } from "../icon-mapping.js"
 import { useIconDictionary } from "../icon-dictionary"
 import Tooltip from "@material-ui/core/Tooltip"
 
-const Container = styled("div")({
-  width: 50,
-  height: "100%",
-  display: "flex",
-  flexDirection: "column",
-  backgroundColor: "#fff",
-  flexShrink: 0,
-})
+
 
 type Props = {
   items: Array<{|
@@ -29,8 +22,17 @@ export const IconSidebar = ({
   items = emptyAr,
   onClickItem,
   selectedTools = emptyAr,
+  bgColor
 }: Props) => {
   const customIconMapping = useIconDictionary()
+  const Container = styled("div")({
+    width: 50,
+    height: "100%",
+    display: "flex",
+    flexDirection: "column",
+    backgroundColor: bgColor ? bgColor : "#fff",
+    flexShrink: 0,
+  })
   return (
     <Container>
       {items.map((item) => {
