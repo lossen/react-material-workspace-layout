@@ -15,7 +15,7 @@ export var IconSidebar = function IconSidebar(_ref) {
   var customIconMapping = useIconDictionary();
   var Container = styled("div")({
     width: 50,
-    height: "100%",
+    height: "auto",
     display: "flex",
     flexDirection: "column",
     backgroundColor: bgColor ? bgColor : "#fff",

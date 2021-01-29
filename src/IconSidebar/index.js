@@ -27,7 +27,7 @@ export const IconSidebar = ({
   const customIconMapping = useIconDictionary()
   const Container = styled("div")({
     width: 50,
-    height: "100%",
+    height: "auto",
     display: "flex",
     flexDirection: "column",
     backgroundColor: bgColor ? bgColor : "#fff",
