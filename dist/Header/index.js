@@ -15,6 +15,8 @@ var Container = styled("div")({
 export var Header = function Header(_ref) {
   var _ref$leftSideContent = _ref.leftSideContent,
       leftSideContent = _ref$leftSideContent === void 0 ? null : _ref$leftSideContent,
+      _ref$hideHeaderText = _ref.hideHeaderText,
+      hideHeaderText = _ref$hideHeaderText === void 0 ? false : _ref$hideHeaderText,
       items = _ref.items,
       onClickItem = _ref.onClickItem;
   return /*#__PURE__*/React.createElement(Container, null, /*#__PURE__*/React.createElement(Box, {
@@ -22,6 +24,7 @@ export var Header = function Header(_ref) {
   }, leftSideContent), items.map(function (item) {
     return /*#__PURE__*/React.createElement(HeaderButton, Object.assign({
       key: item.name,
+      hideText: hideHeaderText,
       onClick: function onClick() {
         return onClickItem(item);
       }

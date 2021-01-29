@@ -4,11 +4,13 @@ import IconButton from "@material-ui/core/IconButton";
 import { iconMapping } from "../icon-mapping.js";
 import { useIconDictionary } from "../icon-dictionary";
 import Tooltip from "@material-ui/core/Tooltip";
+var emptyAr = [];
 export var IconSidebar = function IconSidebar(_ref) {
   var _ref$items = _ref.items,
-      items = _ref$items === void 0 ? [] : _ref$items,
+      items = _ref$items === void 0 ? emptyAr : _ref$items,
       onClickItem = _ref.onClickItem,
-      selectedTools = _ref.selectedTools,
+      _ref$selectedTools = _ref.selectedTools,
+      selectedTools = _ref$selectedTools === void 0 ? emptyAr : _ref$selectedTools,
       bgColor = _ref.bgColor;
   var customIconMapping = useIconDictionary();
   var Container = styled("div")({

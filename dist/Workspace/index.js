@@ -42,30 +42,37 @@ export default (function (_ref) {
       headerLeftSide = _ref$headerLeftSide === void 0 ? null : _ref$headerLeftSide,
       _ref$iconDictionary = _ref.iconDictionary,
       iconDictionary = _ref$iconDictionary === void 0 ? emptyObj : _ref$iconDictionary,
+      rightSidebarExpanded = _ref.rightSidebarExpanded,
+      _ref$hideHeader = _ref.hideHeader,
+      hideHeader = _ref$hideHeader === void 0 ? false : _ref$hideHeader,
+      _ref$hideHeaderText = _ref.hideHeaderText,
+      hideHeaderText = _ref$hideHeaderText === void 0 ? false : _ref$hideHeaderText,
       children = _ref.children,
       IconSidebarBgColor = _ref.IconSidebarBgColor;
 
   var _useDimensions = useDimensions(),
       _useDimensions2 = _slicedToArray(_useDimensions, 2),
-      workContainerRef = _useDimensions2[0],
-      workContainerSize = _useDimensions2[1];
+      sidebarAndContentRef = _useDimensions2[0],
+      sidebarAndContent = _useDimensions2[1];
 
   return /*#__PURE__*/React.createElement(IconDictionaryContext.Provider, {
     value: iconDictionary
   }, /*#__PURE__*/React.createElement(Container, {
     style: style
-  }, /*#__PURE__*/React.createElement(Header, {
+  }, !hideHeader && /*#__PURE__*/React.createElement(Header, {
+    hideHeaderText: hideHeaderText,
     leftSideContent: headerLeftSide,
     onClickItem: onClickHeaderItem,
     items: headerItems
-  }), /*#__PURE__*/React.createElement(SidebarsAndContent, null, iconSidebarItems.length === 0 ? null : /*#__PURE__*/React.createElement(IconSidebar, {
+  }), /*#__PURE__*/React.createElement(SidebarsAndContent, {
+    ref: sidebarAndContentRef
+  }, iconSidebarItems.length === 0 ? null : /*#__PURE__*/React.createElement(IconSidebar, {
     onClickItem: onClickIconSidebarItem,
     selectedTools: selectedTools,
     items: iconSidebarItems,
     bgColor: IconSidebarBgColor
-  }), /*#__PURE__*/React.createElement(WorkContainer, {
-    ref: workContainerRef
-  }, children), rightSidebarItems.length === 0 ? null : /*#__PURE__*/React.createElement(RightSidebar, {
-    height: workContainerSize.height || 0
+  }), /*#__PURE__*/React.createElement(WorkContainer, null, children), rightSidebarItems.length === 0 ? null : /*#__PURE__*/React.createElement(RightSidebar, {
+    initiallyExpanded: rightSidebarExpanded,
+    height: sidebarAndContent.height || 0
   }, rightSidebarItems))));
 });

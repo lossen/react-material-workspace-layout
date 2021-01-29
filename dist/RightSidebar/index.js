@@ -71,26 +71,30 @@ var InnerSliderContent = styled("div")({
 });
 
 var getInitialExpandedState = function getInitialExpandedState() {
-  return Boolean(window.__REACT_WORKSPACE_LAYOUT_EXPANDED_STATE);
+  try {
+    return JSON.parse(window.localStorage.__REACT_WORKSPACE_LAYOUT_EXPANDED);
+  } catch (e) {
+    return window.innerWidth > 1000 ? true : false;
+  }
 };
 
 export var RightSidebar = function RightSidebar(_ref) {
   var children = _ref.children,
-      initialExpandedState = _ref.initialExpandedState,
+      initiallyExpanded = _ref.initiallyExpanded,
       height = _ref.height;
 
   var _useReducer = useReducer(function (state) {
     return !state;
-  }, initialExpandedState === undefined ? getInitialExpandedState() : initialExpandedState),
+  }, initiallyExpanded === undefined ? getInitialExpandedState() : initiallyExpanded),
       _useReducer2 = _slicedToArray(_useReducer, 2),
       expanded = _useReducer2[0],
       toggleExpanded = _useReducer2[1];
 
   useEffect(function () {
-    if (initialExpandedState !== undefined) {
-      window.__REACT_WORKSPACE_LAYOUT_EXPANDED_STATE = expanded;
+    if (initiallyExpanded === undefined) {
+      window.localStorage.__REACT_WORKSPACE_LAYOUT_EXPANDED = JSON.stringify(expanded);
     }
-  }, [initialExpandedState, expanded]);
+  }, [initiallyExpanded, expanded]);
   var containerStyle = useMemo(function () {
     return {
       height: height || "100%"
