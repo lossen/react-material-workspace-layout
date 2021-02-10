@@ -20,7 +20,6 @@ export var IconSidebar = function IconSidebar(_ref) {
       height: "auto",
       display: "flex",
       flexDirection: "column",
-      backgroundColor: bgColor ? bgColor : "#fff",
       flexShrink: 0
     }
   }, items.map(function (item) {
